@@ -1,4 +1,8 @@
 .DS_Store
 .module-cache
 credentials.py
-credentials.py
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class

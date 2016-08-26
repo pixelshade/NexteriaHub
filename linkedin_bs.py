@@ -44,9 +44,9 @@ def get_profile(url):
 	
 	profile = {}
 
-	f = open('page.html','w')
-	f.write(html)
-	f.close()
+	# f = open('page.html','w')
+	# f.write(html)
+	# f.close()
 
 	soup = BeautifulSoup(html)
 	fullname = soup.find('h1').text
@@ -58,7 +58,7 @@ def get_profile(url):
 	past =  soup.find_all('div',class_="editable-item section-item past-position")
 	current = soup.find_all('div',class_="editable-item section-item current-position")
 	ppic_div = soup.find('div',class_="profile-picture")
-	print ppic_div
+	# print ppic_div
 	if(ppic_div is not None):
 		pic_url = ppic_div.img['src']
 	else:
