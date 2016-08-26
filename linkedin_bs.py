@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import urllib
 import json
 import credentials
+import peopledb
 
 client = requests.Session()
 
@@ -13,7 +14,7 @@ html = client.get(HOMEPAGE_URL).content
 soup = BeautifulSoup(html)
 csrf = soup.find(id="loginCsrfParam-login")['value']
 
-login_information = credentials.login_information
+login_information = credentials.LOGIN_INFORMATION
 login_information['loginCsrfParam'] = csrf
 
 client.post(LOGIN_URL, data=login_information)
@@ -162,6 +163,20 @@ def find_profile_url(name):
 	return urls
 
 
+    
 
-urls = find_profile_url('peter sulik')
-print get_profile(urls[0])
+
+
+# urls = find_profile_url('peter sulik')
+# user =  get_profile(urls[0])
+# save_user(user)
+cursor = peopledb.list_all_users()
+for doc in cursor:
+	print doc
+	print '_______________'
+
+
+
+
+
+
